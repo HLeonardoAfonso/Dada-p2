@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.svg">
+    <link href="/styles/style.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <title>DaDom</title>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="flex-row d-flex align-items-center gap-4" >
+            <div class="d-flex align-items-center ">
+                <a href="/index.html"><img src="assets/images/logo.svg"></a>
+                
+                <div class="dropdown">
+                    <button class="btn greyed  dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                      Categories
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        <li><a class="dropdown-item" href="#">All</a></li>
+                        <li><a class="dropdown-item" href="#">Abstract</a></li>
+                        <li><a class="dropdown-item" href="#">Cartoon</a></li>
+                        <li><a class="dropdown-item" href="#">3D</a></li>
+                        <li><a class="dropdown-item" href="#">FanArt</a></li>
+                        <li><a class="dropdown-item" href="#">Manga</a></li><li><a class="dropdown-item" href="#">All</a></li>
+                        <li><a class="dropdown-item" href="#">Retro</a></li>
+                        <li><a class="dropdown-item" href="#">PixelArt</a></li><li><a class="dropdown-item" href="#">All</a></li>
+                        <li><a class="dropdown-item" href="#">Space</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex  align-items-center col gap-5" >
+                <form class="form-floating col d-flex align-items-center text-center" >
+                    <input type="text" class="form-control"  id="exampleInputSearch" aria-describedby="Search area" placeholder="Search" >
+                    <label class="text-center" for="floatingInput "><i class="bi bi-search "></i> Search</label>
+                </form>
+                <a>Buy</a>
+                <a>Sell</a>    
+                <div class="dropdown">
+                    <button class="btn greyed  dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        🇵🇹 € EUR
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" href="#">€ EUR</a></li>
+                        <li><a class="dropdown-item" href="#">$ USD</a></li>
+                        <li><a class="dropdown-item" href="#">£ GBP</a></li>
+                    </ul>
+                </div>  
+            </div>
+            <div class="col-md-2 d-inline-flex gap-2 ">
+                <a href="sign-in-up.html" class="underline-none fit-100">
+                    <button class="btn-white  fit-100">
+                        <i class="bi bi-person-circle"></i> &nbsp; Log in / Register
+                    </button>
+                </a>
+                <a ><i class="bi bi-star fs-4 " ></i></a>
+                <a ><i class="bi bi-cart fs-4" ></i></a>
+            </div>
+        </div>
+        <div class="pt-3 d-flex  align-items-center gap-2 justify-content-between">
+            <a href="/search.html"><button class="btn-cian ">All</button></a>
+            <button class="btn-cian">Abstract</button>
+            <button class="btn-cian">Cartoon</button>
+            <button class="btn-cian">3D</button>
+            <button class="btn-cian">Fan Art</button>
+            <button class="btn-cian">Manga</button>
+            <button class="btn-cian">Retro</button>
+            <button class="btn-cian">Pixel Art</button>
+            <button class="btn-cian">Space</button>
+            
+            <button class="btn-white btn-large col-2">
+                <i class="bi bi-download"></i> &nbsp; Download App
+            </button>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Hero section -->
+        <div class="d-flex ">
+            <div class="col-4 align-items-center justify-content-center my-auto p-2"> 
+                <h2 class="text-center">OpenAI Indtroduces DALL-E 3 </h2>
+                <p class="text-center">The new AI system can create realistic images from a description identical to human-made art. </p>
+            </div>
+            <div class="col-4 d-flex"><img src="/assets/images/ArtImage4.png" class="fit-100"></div>
+            <div class="col-4 d-flex"><img src="/assets/images/ArtImage5.png" class="fit-100"></div>
+        </div>
+
+        <!-- Categores -->
+
+        <div class="d-flex purpled flex-row px-2  align-items-center">
+            <h2 class="col-4 text-center text-white">
+                Categories
+            </h2>
+            <div class="col-8 d-flex flex-column  p-2">
+                <div class="d-flex w-100 gap-2  align-items-center p-2">
+                    <button class="btn-yellow col">Abstract</button>
+                    <button class="btn-yellow col">3D</button>
+                    <button class="btn-yellow col">Futurism</button>
+                    <button class="btn-yellow col">Motion & Video</button>
+                </div>
+                <div class="d-flex w-100 gap-2 align-items-center p-2">
+                    <button class="btn-green col">Mixed & Integrated</button>
+                    <button class="btn-green col">NFT</button>
+                    <button class="btn-green col">Data-moshing</button>
+                    <button class="btn-green col">Ai-gen</button>
+                </div>
+                <div class="d-flex w-100 gap-2 align-items-center p-2">
+                    <button class="btn-purp col"> € 0+ </button>
+                    <button class="btn-purp col">€ 100+ </button>
+                    <button class="btn-purp col">€ 250+ </button>
+                    <button class="btn-purp col">€ 500+ </button>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Popular collections -->
+        <div class=" row d-flex p-2 ">
+            <h4 class=" d-flex">POPULAR COLLECTION</h4>
+            <div id="cardHomeListing" class="d-flex flex-wrap">
+                <!--Display JSON file-->
+            </div>
+        </div>
+
+        <!-- Abstract collections -->
+        <div class=" row d-flex p-2 ">
+            <h4 class=" d-flex">ABSTRACT COLLECTION</h4>
+            <div id="cardAbstractCollection" class="d-flex flex-wrap">
+                <!--Display JSON file-->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto ">
+        <div class="flex-column">
+            <div class="d-flex mx-2 ">
+                <div class="d-flex col-3 flex-column mx-2">
+                    <div class="d-flex gap-4  align-items-center  ">
+                        <a href="/index.html" class="col-4 "><img src="assets/images/logo.svg" class="fit-100"></a>
+                        <div class=" flex-column mx-auto gap-2 align-items-center ">
+                            <h6 class="text-center "> DADA© 2023</h6>
+                            <div class="d-flex  flex-wrap gap-2 m-2">
+                                <i class="bi bi-behance" ></i>
+                                <i class="bi bi-pinterest"></i>
+                                <i class="bi bi-tiktok"></i>
+                                <i class="bi bi-instagram"></i>
+                                <i class="bi bi-twitter"></i>
+                                <i class="bi bi-youtube"></i>
+                                <i class="bi bi-snapchat"></i>
+                                <i class="bi bi-facebook"></i>
+                            </div>
+                        </div> 
+                        
+                    </div>
+                            
+                    <div class="flex-row align-items-center m-2">
+                            <div class="text-center m-2">Download</div>
+                            <div class="d-flex d-row gap-2 mx-2">
+                                <button class="btn-white fit-100">
+                                    <i class="bi bi-apple"></i> App Store
+                                </button>
+        
+                                <button class="btn-white fit-100">
+                                    <i class="bi bi-play"></i> Google Play
+                                </button>
+        
+                            </div>
+                    </div>
+                    
+                </div>
+                <div class=" d-flex col-3 flex-row mx-2 ">
+                    <div class="col  mx-auto justify-content-between ">
+                        <p>About</p>
+                        <p class="smalltext ">About DADA</p>
+                        <p class="smalltext ">Collections</p>
+                        <p class="smalltext ">Who we are</p>
+                        <p class="smalltext ">Contacts</p>
+                        <p class="smalltext ">Jobs</p>
+                        <p class="smalltext ">News</p>
+                        <p class="smalltext ">Archive</p>
+                        <p class="smalltext ">Press</p>
+                    </div>
+                    <div class="col">
+                        <p>Buy</p>
+                        <p class="smalltext ">Hire expert</p>
+                        <p class="smalltext ">FAQ</p>
+                        <p class="smalltext ">Payment</p>
+                        <p class="smalltext ">Help</p>
+                        <p class="smalltext ">Testimonials</p>
+                        <p class="smalltext ">Buyer Policy</p>
+                        <p class="smalltext ">Gift Card</p>
+                        <p class="smalltext ">Refer a friend</p>
+                    </div>
+                    <div class="col">
+                        <p>Sell</p>
+                        <p class="smalltext ">Apply as artist</p>
+                        <p class="smalltext ">Artist's handbook</p>
+                        <p class="smalltext ">Payment</p>
+                        <p class="smalltext ">Help</p>
+                        <p class="smalltext ">Seller Policy</p>
+                        <p class="smalltext ">FAQ</p>
+                    </div>
+                </div>
+                <div class="d-flex col-3 flex-column align-items-center mx-2">
+                    <h4 >Over 500+ Reviews</h4>
+                    <img src="/assets/images/trustpilot.png" class="img-fluid">
+                    <img src="/assets/images/starsvoting.png" class="img-fluid">
+                    <p class="mt-4 mb-0 fw-bold" >Secure Payment</p>
+                    <div class="d-flex gap-4 m-1">
+                        <i class="bi bi-paypal"></i>
+                        <i class="bi bi-currency-bitcoin"></i>
+                        <i class="bi bi-stripe"></i>
+                        <i class="bi bi-amazon"></i>
+                    </div>
+                </div>
+                <div class="d-flex col-3 flex-column     ">
+                    <div class="d-flex gap-3 m-2  align-items-center ">
+                        <div class=""><button class="btn-purp ">
+                            <i class="bi bi-gift "></i> &nbsp; Gift Card
+                        </button></div>
+                        <div class="text-end px-5 ">DADA© 2023</div>
+                    </div>
+                    <div class="mx-2 px-5">
+                        <p  class="smalltext fw-bold text-end">www.dada.art</p>
+                        <p  class="smalltext text-end ">New Road 515 , West Side, Portugal</p>
+                    </div>
+                    <div class="m-2">
+                        <p>Subscribe to newsletter</p>
+                        <form class="d-flex pe-5">
+                            <input type="text" class="form-control d-flex "  id="newsletter" aria-describedby="Search area" placeholder="your email here"  >
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            
+
+            <hr>
+            <div class="d-flex text-center">
+                <div class="col"><h6>Terms and Conditions</h6></div>
+                <div class="col"><h6>Privacy Policy</h6></div>
+                <div class="col"><h6>Cookie Policy</h6></div>
+                <div class="col"><h6>Legal Notice</h6></div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script src="/scripts/homepage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+</body>
+</html>

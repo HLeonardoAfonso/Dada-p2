@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.svg">
+    <link href="/styles/style.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Artist Page</title>
+</head>
+<body class="d-flex flex-column align-items-center" style="height: 100vh">
+    <!-- Header -->
+    <header>
+        <div class="flex-row d-flex align-items-center gap-4" >
+            <div class="d-flex align-items-center ">
+                <a href="/index.html"><img src="assets/images/logo.svg"></a>
+                
+                <div class="dropdown">
+                    <button class="btn greyed  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Categories
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">All</a></li>
+                        <li><a class="dropdown-item" href="#">Abstract</a></li>
+                        <li><a class="dropdown-item" href="#">Cartoon</a></li>
+                        <li><a class="dropdown-item" href="#">3D</a></li>
+                        <li><a class="dropdown-item" href="#">FanArt</a></li>
+                        <li><a class="dropdown-item" href="#">Manga</a></li><li><a class="dropdown-item" href="#">All</a></li>
+                        <li><a class="dropdown-item" href="#">Retro</a></li>
+                        <li><a class="dropdown-item" href="#">PixelArt</a></li><li><a class="dropdown-item" href="#">All</a></li>
+                        <li><a class="dropdown-item" href="#">Space</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex  align-items-center col gap-5" >
+                <form class="form-floating col d-flex align-items-center text-center" >
+                    <input type="text" class="form-control"  id="exampleInputSearch" aria-describedby="Search area" placeholder="Search" >
+                    <label class="text-center" for="floatingInput "><i class="bi bi-search "></i> Search</label>
+                </form>
+                <a>Buy</a>
+                <a>Sell</a>    
+                <div class="dropdown">
+                    <button class="btn greyed  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        🇵🇹 € EUR
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">€ EUR</a></li>
+                        <li><a class="dropdown-item" href="#">$ USD</a></li>
+                        <li><a class="dropdown-item" href="#">£ GBP</a></li>
+                    </ul>
+                </div>  
+            </div>
+            <div class="col-md-2 d-inline-flex gap-2 ">
+                <button class="btn-white  fit-100">
+                    <div class="col-md-2 " style="width: 25px; height: 25px; border-radius: 75px; overflow: hidden; display: flex; justify-content: center;"  >
+                        <img src="/assets/images/Artimage1.png" >
+                    </div> &nbsp; &nbsp; &nbsp; So Lazo
+                </button>
+                <a ><i class="bi bi-star fs-4 " ></i></a>
+                <a ><i class="bi bi-cart fs-4" ></i></a>
+            </div>
+        </div>
+        <div class="pt-3 d-flex  align-items-center gap-2 justify-content-between">
+            <a href="/search.html"><button class="btn-cian ">All</button></a>
+            <button class="btn-cian">Abstract</button>
+            <button class="btn-cian">Cartoon</button>
+            <button class="btn-cian">3D</button>
+            <button class="btn-cian">Fan Art</button>
+            <button class="btn-cian">Manga</button>
+            <button class="btn-cian">Retro</button>
+            <button class="btn-cian">Pixel Art</button>
+            <button class="btn-cian">Space</button>
+            
+            <button class="btn-white btn-large col-2">
+                <i class="bi bi-download"></i> &nbsp; Download App
+            </button>
+        </div>
+    </header>
+
+    <main style="width: 100%; padding: 0px  30px; ">
+
+    <!-- Beadcrumbs -->
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="search.html">Artists</a></li>
+            <li class="breadcrumb-item active" aria-current="page">So Lazlo</li>
+        </ol>
+    </nav>
+
+    <!-- Perfile -->
+    
+    <div class="d-flex flex-row p-0 my " style="gap: 10px" >
+        <!-- Artist image -->
+        <div class="col-md-2 " style="width: 150px; height: 150px; border-radius: 75px; overflow: hidden; display: flex; justify-content: center;"  >
+            <img src="/assets/images/Artimage1.png" >
+        </div>
+        <!-- Name, badges, socials, location -->   
+        <div class="d-flex flex-column m-2">
+            <div class="d-inline-flex align-items-center gap-2">
+                <h1>So Lazo</h1>
+                <div  class="d-inline-flex align-items-center gap-2  " >
+
+                    <button type="button" class="badgeicon  " >
+                        <i class="bi bi-check-lg"></i>
+                    </button>
+                    <button type="button" class="badgeicon  " >
+                        <i class="bi bi-stars"></i>
+                    </button>
+                    <button type="button" class="badgeicon  " >
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+                    
+                    <button type="button" class="badgeicon  " >
+                        <i class="bi bi-check-lg"></i>
+                    </button>
+                    <button type="button" class="badgeicon  " >
+                        <i class="bi bi-stars"></i>
+                    </button>
+                    <button type="button" class="badgeicon  " >
+                        <i class="bi bi-arrow-up-right"></i>
+                    </button>
+
+                </div>
+            </div>
+            
+           <!-- Edit Upload buttons --> 
+            <div class="d-inline-flex my-2 gap-2 ml-0 pl-0">
+                <button type="button" class="socialicon  " >
+                    <i class="bi bi-instagram"></i>
+                </button>
+                <button type="button" class="socialicon  " >
+                    <i class="bi bi-twitch"></i>
+                </button>
+                <button type="button" class="socialicon  " >
+                    <i class="bi bi-facebook"></i>
+                </button>
+                <button type="button" class="socialicon  " >
+                    <i class="bi bi-twitter"></i>
+                </button>
+            </div>
+
+            <!-- column 4-->
+            <div>
+                <p> <i class="bi bi-geo-alt"></i> El Salvador</p>
+            </div>
+        </div>  
+        <div class="col-md-2 mt-1 p-2 ">
+            <button type="button" class=" m-2 btn-grey">
+                <i class="bi bi-pen-fill"></i> &nbsp EDIT
+            </button>
+            <button type="button" class="m-2 btn-purp" data-bs-toggle="modal" data-bs-target="#listingCreationModal" >
+                <i class="bi bi-upload "> </i> &nbsp UPLOAD
+            </button>
+
+            <!-- <button class="btn-grey " ><img src="assets/icons/edit.png" class="icon" >Edit</button>
+            <button class="btn-purp" ><img src="assets/icons/upload.png" class="icon" >Upload</button> -->
+        </div>
+    </div>
+
+    <!-- Statistics -->
+
+    <!-- Listings -->
+    
+    <div class="d-flex flex-wrap ">
+
+        <!-- A card -->
+        <div id="cardListing" class="d-flex flex-wrap">
+            <!--Display JSON file-->
+        </div>
+            
+    </div>
+                
+    <!-- Modal for creation of listing --> 
+    <div class="modal fade" id="listingCreationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex flex-wrap">
+                        <p class="modalComents col-12">Add images to the listing</p>
+                        <div class="col-4">
+                            <div class="w-100 h-50 greyed d-flex justify-content-center align-items-center">
+                                <div class="btn-white px-2">
+                                    <i class="bi bi-upload me-2"></i>Browse or Drag-and-drop
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col pl-30">
+                            <div class="d-flex pb-3">
+                                <button type="button" class="btn-grey me-3 col-4" data-bs-dismiss="modal">Save as Draft</button>
+                                <button type="button" class="btn-purp mx-3 col-4" data-bs-dismiss="modal"><img src="assets/icons/upload.png" class="icon">Publish</button>
+                            </div>
+                            <form>
+                                <label for="title">Title:</label>
+                                <div class="d-flex">
+                                    <input type="text" id="title" name="title" class="col-5 h-36">
+                                    <p class="modalComents ms-3">
+                                        Title is the time you shine!<br>
+                                        Try to fit in 50 characters to keep it easy to read.<br>
+                                        <a href="..." class="purpledText">Guide to write an eye-catching title.</a></p>
+                                </div>
+                                <label for="price">Price:</label>
+                                <div class="d-flex">
+                                    <div class="d-inline-flex mb-2">
+                                        <i class="bi bi-currency-euro icon mx-2"></i>
+                                        <input type="text" id="price" name="price" class="h-36">
+                                    </div>
+                                    <p class="modalComents ms-3">
+                                        Enter price excluding VAT. We will add taxes and fees for you.<br>
+                                        <a href="..." class="purpledText">See more about fees.</a></p>
+                                </div>
+                                <label for="year">Year:</label>
+                                <div class="d-flex">
+                                    <div class="d-inline-flex mb-2">
+                                        <i class="icon mx-2"></i>
+                                        <input type="number" min="1900" max="2099" step="1" id="year" name="year" class="h-36">
+                                    </div>
+                                    <p class="modalComents ms-3">
+                                        Year the artwork was created.</p>
+                                </div>
+                                <label for="tag">Tags:</label>
+                                <div class="d-flex">
+                                    <div class="d-flex flex-column">
+                                        <div class="d-inline-flex mb-2">
+                                            <i class="bi bi-hash icon mx-2"></i>
+                                            <input type="text" id="tag" name="tag" class="h-36">
+                                        </div>
+                                        <div class="col-3 d-inline-flex">
+                                            <i class="bi bi-plus-circle icon mx-2"></i>
+                                            <input type="text" name="tag" class="h-36">
+                                        </div>
+                                    </div>
+                                    <p class="modalComents ms-3">
+                                        Feel free to type tags that best match your artwork.<br>
+                                        This can include theme, colors, technology used, artwork type and your personal tags.<br>
+                                        We will automatically group them.<br>
+                                        <a href="..." class="purpledText">Check here existing Tags.</a></p>
+                                </div>
+                                <label for="colection">Colection:</label>
+                                <div class="d-flex">
+                                    <div class="d-flex flex-column">
+                                        <div class="d-inline-flex mb-2">
+                                            <i class="icon mx-2"></i>
+                                            <input type="text" id="colection" name="colection" class="h-36">
+                                        <p class="modalComents ms-3">Add the artwork to a collection.</p>
+                                        </div>
+                                        <div class="d-inline-flex">
+                                            <i class="bi bi-plus-circle icon mx-2"></i>
+                                        <input type="text" id="colection" name="colection" class="h-36">
+                                        <p class="modalComents ms-3">Add the artwork to a collection.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label for="description">Description:</label>
+                                <div class="d-flex">
+                                    <textarea id="description" name="description" rows="4" cols="40"></textarea>
+                                    <p class="modalComents ms-3">
+                                        Give a brief description about the artwork.<br>
+                                        Add details about the technology, medium, technique and year it was made.</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </main>
+    
+      
+    <!-- Footer -->
+    <footer class="mt-auto ">
+        <div class="flex-column">
+            <div class="d-flex mx-2 ">
+                <div class="d-flex col-3 flex-column mx-2">
+                    <div class="d-flex gap-4  align-items-center  ">
+                        <a href="/index.html" class="col-4 "><img src="assets/images/logo.svg" class="fit-100"></a>
+                        <div class=" flex-column mx-auto gap-2 align-items-center ">
+                            <h6 class="text-center "> DADA© 2023</h6>
+                            <div class="d-flex  flex-wrap gap-2 m-2">
+                                <i class="bi bi-behance" ></i>
+                                <i class="bi bi-pinterest"></i>
+                                <i class="bi bi-tiktok"></i>
+                                <i class="bi bi-instagram"></i>
+                                <i class="bi bi-twitter"></i>
+                                <i class="bi bi-youtube"></i>
+                                <i class="bi bi-snapchat"></i>
+                                <i class="bi bi-facebook"></i>
+                            </div>
+                        </div> 
+                        
+                    </div>
+                            
+                    <div class="flex-row align-items-center m-2">
+                            <div class="text-center m-2">Download</div>
+                            <div class="d-flex d-row gap-2 mx-2">
+                                <button class="btn-white fit-100">
+                                    <i class="bi bi-apple"></i> App Store
+                                </button>
+        
+                                <button class="btn-white fit-100">
+                                    <i class="bi bi-play"></i> Google Play
+                                </button>
+        
+                            </div>
+                    </div>
+                    
+                </div>
+                <div class=" d-flex col-3 flex-row mx-2 ">
+                    <div class="col  mx-auto justify-content-between ">
+                        <p>About</p>
+                        <p class="smalltext ">About DADA</p>
+                        <p class="smalltext ">Collections</p>
+                        <p class="smalltext ">Who we are</p>
+                        <p class="smalltext ">Contacts</p>
+                        <p class="smalltext ">Jobs</p>
+                        <p class="smalltext ">News</p>
+                        <p class="smalltext ">Archive</p>
+                        <p class="smalltext ">Press</p>
+                    </div>
+                    <div class="col">
+                        <p>Buy</p>
+                        <p class="smalltext ">Hire expert</p>
+                        <p class="smalltext ">FAQ</p>
+                        <p class="smalltext ">Payment</p>
+                        <p class="smalltext ">Help</p>
+                        <p class="smalltext ">Testimonials</p>
+                        <p class="smalltext ">Buyer Policy</p>
+                        <p class="smalltext ">Gift Card</p>
+                        <p class="smalltext ">Refer a friend</p>
+                    </div>
+                    <div class="col">
+                        <p>Sell</p>
+                        <p class="smalltext ">Apply as artist</p>
+                        <p class="smalltext ">Artist's handbook</p>
+                        <p class="smalltext ">Payment</p>
+                        <p class="smalltext ">Help</p>
+                        <p class="smalltext ">Seller Policy</p>
+                        <p class="smalltext ">FAQ</p>
+                    </div>
+                </div>
+                <div class="d-flex col-3 flex-column align-items-center mx-2">
+                    <h4 >Over 500+ Reviews</h4>
+                    <img src="/assets/images/trustpilot.png" class="img-fluid">
+                    <img src="/assets/images/starsvoting.png" class="img-fluid">
+                    <p class="mt-4 mb-0 fw-bold" >Secure Payment</p>
+                    <div class="d-flex gap-4 m-1">
+                        <i class="bi bi-paypal"></i>
+                        <i class="bi bi-currency-bitcoin"></i>
+                        <i class="bi bi-stripe"></i>
+                        <i class="bi bi-amazon"></i>
+                    </div>
+                </div>
+                <div class="d-flex col-3 flex-column     ">
+                    <div class="d-flex gap-3 m-2  align-items-center ">
+                        <div class=""><button class="btn-purp ">
+                            <i class="bi bi-gift "></i> &nbsp; Gift Card
+                        </button></div>
+                        <div class="text-end px-5 ">DADA© 2023</div>
+                    </div>
+                    <div class="mx-2 px-5">
+                        <p  class="smalltext fw-bold text-end">www.dada.art</p>
+                        <p  class="smalltext text-end ">New Road 515 , West Side, Portugal</p>
+                    </div>
+                    <div class="m-2">
+                        <p>Subscribe to newsletter</p>
+                        <form class="d-flex pe-5">
+                            <input type="text" class="form-control d-flex "  id="newsletter" aria-describedby="Search area" placeholder="your email here"  >
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            
+
+            <hr>
+            <div class="d-flex text-center">
+                <div class="col"><h6>Terms and Conditions</h6></div>
+                <div class="col"><h6>Privacy Policy</h6></div>
+                <div class="col"><h6>Cookie Policy</h6></div>
+                <div class="col"><h6>Legal Notice</h6></div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        const findListings = async () => {
+                let strHtml = ``
+                const response = await fetch('listings.json')
+                const lv = await response.json()
+                
+                // const filterapplied = lv.filter(item => item.Year == 2020)
+                // console.log(filterapplied)
+
+                for (const artigo of lv) {
+                    strHtml += `
+                        <div class=" flex-column col-xxl-3 col-md-3 p-2 ">
+                            <img src="${artigo.coverimg}" class="img img-fluid w-100">
+                            <div class="d-flex">
+                                <div class="d-flex">
+                                    <strong class="bold">${artigo.title}</strong>
+                                    <div>, ${artigo.year}</div>
+                                </div>
+                                <div  class="d-flex ms-auto ">
+                                    <div>${artigo.rating}</div>
+                                    <i class="bi bi-star-fill" style = "color:#BB86FF;"></i>
+                                    <i class="bi bi-star-fill" style = "color:#BB86FF;"></i>
+                                    <i class="bi bi-star-fill" style = "color:#BB86FF;"></i>
+                                    <i class="bi bi-star-fill " style = "color:#BB86FF;"></i>
+                                    <i class="bi bi-star"></i>
+                                    <div> (255) </div>
+                                </div>  
+                            </div>
+
+                            <!-- tags of the item type -->
+
+                            <div class="d-flex flex-wrap gap-2 my-2">
+                                <button type="button" class="badgeinfo ">
+                                    <i class="bi bi-arrow-up-right"> </i> Digital art 
+                                </button>
+                                <button type="button" class=" badgeinfo" >
+                                    <i class="bi bi-arrow-up-right"> </i>Etherium
+                                </button>
+                                <button type="button" class=" badgeinfo" >
+                                    <i class="bi bi-arrow-up-right">  </i>Fan art
+                                </button>
+                                <button type="button" class="badgeinfo " >
+                                    <i class="bi bi-stars"></i>Cartoon
+                                </button>
+                            </div>
+
+                            <!-- buttons and price -->
+                            <div class="d-flex gap-2 ">
+                                <button type="button" class=" btn-grey" >
+                                    € ${artigo.price}
+                                </button>
+                                <button type="button" class=" btn-purp" data-bs-toggle="modal" data-bs-target="#listingModal">
+                                    <i class="bi bi-pen"> </i> &nbsp EDIT
+                                </button>
+                            </div>
+
+                            <!-- MODAL for listing EDIT --> 
+                            <div class="modal fade" id="listingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">${artigo.title}</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="d-flex flex-wrap">
+                                                <p class="modalComents col-12">Cover</p>
+                                                <div class="col-4">
+                                                    <img src="${artigo.coverimg}" class="img img-fluid w-100 mb-3">
+                                                    <p class="modalComents col-12">Add more items to the listing</p>
+                                                    <div class="w-100 h-50 greyed d-flex justify-content-center align-items-center">
+                                                        <div class="btn-white px-2">
+                                                            <i class="bi bi-upload me-2"></i>Browse or Drag-and-drop
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col pl-30">
+                                                    <div class="d-flex pb-3">
+                                                        <button type="button" class="btn-grey me-3 col-4" data-bs-dismiss="modal">Copy as Draft</button>
+                                                        <button type="button" class="btn-purp mx-3 col-4" data-bs-dismiss="modal"><i class="bi bi-upload me-2"></i>Update</button>
+                                                    </div>
+                                                    <form>
+                                                        <label for="title">Title:</label>
+                                                        <div class="d-flex">
+                                                            <input type="text" id="title" name="title" class="col-5 h-36" value="${artigo.title}">
+                                                            <p class="modalComents ms-3">
+                                                                Title is the time you shine!<br>
+                                                                Try to fit in 50 characters to keep it easy to read.<br>
+                                                                <a href="..." class="purpledText">Guide to write an eye-catching title.</a></p>
+                                                        </div>
+                                                        <label for="price">Price:</label>
+                                                        <div class="d-flex">
+                                                            <div class="d-inline-flex mb-2">
+                                                                <i class="bi bi-currency-euro icon mx-2"></i>
+                                                                <input type="text" id="price" name="price" class="h-36" value="${artigo.price}">
+                                                            </div>
+                                                            <p class="modalComents ms-3">
+                                                                Enter price excluding VAT. We will add taxes and fees for you.<br>
+                                                                <a href="..." class="purpledText">See more about fees.</a></p>
+                                                        </div>
+                                                        <label for="year">Year:</label>
+                                                        <div class="d-flex">
+                                                            <div class="d-inline-flex mb-2">
+                                                                <i class="icon mx-2"></i>
+                                                                <input type="number" min="1900" max="2099" step="1" id="year" name="year" class="h-36" value="${artigo.year}">
+                                                            </div>
+                                                            <p class="modalComents ms-3">
+                                                                Year the artwork was created.</p>
+                                                        </div>
+                                                        <label for="tag">Tags:</label>
+                                                        <div class="d-flex">
+                                                            <div class="d-flex flex-column">
+                                                                <div class="d-inline-flex mb-2">
+                                                                    <i class="bi bi-hash icon mx-2"></i>
+                                                                    <input type="text" id="tag" name="tag" class="h-36" value="${artigo.tags}">
+                                                                </div>
+                                                                <div class="col-3 d-inline-flex">
+                                                                    <i class="bi bi-plus-circle icon mx-2"></i>
+                                                                    <input type="text" name="tag" class="h-36">
+                                                                </div>
+                                                            </div>
+                                                            <p class="modalComents ms-3">
+                                                                Feel free to type tags that best match your artwork.<br>
+                                                                This can include theme, colors, technology used, artwork type and your personal tags.<br>
+                                                                We will automatically group them.<br>
+                                                                <a href="..." class="purpledText">Check here existing Tags.</a></p>
+                                                        </div>
+                                                        <label for="colection">Colection:</label>
+                                                        <div class="d-flex">
+                                                            <div class="d-flex flex-column">
+                                                                <div class="d-inline-flex mb-2">
+                                                                    <i class="icon mx-2"></i>
+                                                                    <input type="text" id="colection" name="colection" class="h-36" value="${artigo.colection}">
+                                                                <p class="modalComents ms-3">Add the artwork to a collection.</p>
+                                                                </div>
+                                                                <div class="d-inline-flex">
+                                                                    <i class="bi bi-plus-circle icon mx-2"></i>
+                                                                <input type="text" id="colection" name="colection" class="h-36">
+                                                                <p class="modalComents ms-3">Add the artwork to a collection.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <label for="description">Description:</label>
+                                                        <div class="d-flex">
+                                                            <textarea id="description" name="description" rows="4" cols="40">${artigo.description}</textarea>
+                                                            <p class="modalComents ms-3">
+                                                                Give a brief description about the artwork.<br>
+                                                                Add details about the technology, medium, technique and year it was made.</p>
+                                                        </div>
+                                                    </form>
+                                                    <div>
+                                                        <button type="button" class="btn-purp reded mt-3 col-4 d-flex " data-bs-dismiss="modal"><i class="bi bi-trash me-2"></i>Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                }
+                document.getElementById("cardListing").innerHTML = strHtml;
+            }
+
+        findListings();
+    </script>
+</body>
+</html>
