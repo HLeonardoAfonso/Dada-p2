@@ -1,5 +1,5 @@
 {
-  "name": "teste1",
+  "name": "DadaTwo",
   "version": "1.0.0",
   "description": "Primeiro teste de um api",
   "main": "server.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alfZone/teste1.git"
+    "url": "git+https://github.com/HLeonardoAfonso/DadaTwo"
   },
   "keywords": [
     "ws",
@@ -18,9 +18,9 @@
   "author": "António Lira Fernandes",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alfZone/teste1/issues"
+    "url": "https://github.com/HLeonardoAfonso/DadaTwo"
   },
-  "homepage": "https://github.com/alfZone/teste1#readme",
+  "homepage": "https://github.com/HLeonardoAfonso/DadaTwo",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",

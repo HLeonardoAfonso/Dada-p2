@@ -3,7 +3,7 @@ const findHomeListings  = async () => {
             const response = await fetch('http://localhost:4242/api/carros/');
             const lv = await response.json();            
 
-            const filterapplied = lv.filter(item => item.tags == "popular" )
+            const filterapplied = lv.filter(item => item.carros.tags == "popular" )
 
             for (artigo of filterapplied ) { 
 
