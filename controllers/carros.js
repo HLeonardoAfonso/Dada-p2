@@ -3,7 +3,7 @@ const fs = require('fs');
 //devolve todos os carros
 exports.getAll = async (req, res) => {
     //ler o ficheiro local
-    const datajson = fs.readFileSync('http://localhost:4242/api/carros/', "utf-8");
+    const datajson = fs.readFileSync("/data/local/data.json", "utf-8");
     //parse do json
     const data = JSON.parse(datajson);
     //devolver os carros

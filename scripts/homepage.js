@@ -3,7 +3,7 @@ const findHomeListings  = async () => {
             const response = await fetch('http://localhost:4242/api/carros/');
             const lv = await response.json();            
 
-            const filterapplied = lv.filter(item => item.carros.tags == "popular" )
+            const filterapplied = lv.filter(item => carros.item.tags == "popular" )
 
             for (artigo of filterapplied ) { 
 
@@ -97,7 +97,7 @@ const findHomeListings  = async () => {
             const response = await fetch('http://localhost:4242/api/carros/');
             const lv = await response.json();
 
-            const filterapplied = lv.filter(item => item.tags == "abstract" )
+            const filterapplied = lv.filter(item => item.carros.tags == "abstract" )
 
             for (artigo of filterapplied ) { 
                 

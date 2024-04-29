@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/assets/images/logo.svg">
-    <link href="/styles/style.css" rel="stylesheet">
+    <link href="http://localhost:4242/bo/styles" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -15,7 +15,7 @@
     <header>
         <div class="flex-row d-flex align-items-center gap-4" >
             <div class="d-flex align-items-center ">
-                <a href="/index.html"><img src="assets/images/logo.svg"></a>
+                <a href="/index.html"><img src="http://localhost:4242/bo/images"></a>
                 
                 <div class="dropdown">
                     <button class="btn greyed  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -397,7 +397,7 @@
     <script>
         const findListings = async () => {
                 let strHtml = ``
-                const response = await fetch('listings.json')
+                const response = await fetch('http://localhost:4242/api/carros/')
                 const lv = await response.json()
                 
                 // const filterapplied = lv.filter(item => item.Year == 2020)
@@ -406,7 +406,7 @@
                 for (const artigo of lv) {
                     strHtml += `
                         <div class=" flex-column col-xxl-3 col-md-3 p-2 ">
-                            <img src="${artigo.coverimg}" class="img img-fluid w-100">
+                            <img src="${artigo.carros.coverimg}" class="img img-fluid w-100">
                             <div class="d-flex">
                                 <div class="d-flex">
                                     <strong class="bold">${artigo.title}</strong>

@@ -8,7 +8,7 @@
             "tags":"threeD",
             "colection":"",
             "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "coverimg":"/assets/images/ArtImage1.png",
+            "coverimg":"http://localhost:4242/bo/images",
             "rating":"4.8"
         },
     
@@ -20,7 +20,7 @@
             "tags":"abstract",
             "colection":"",
             "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "coverimg":"/assets/images/ArtImage2.png",
+            "coverimg":"",
             "abstract":"true",
             "rating":"4.7"
         },
