@@ -28,7 +28,7 @@ exports.getById = async (req, res) => {
 //criate new listing
 exports.create = async (req, res) => {
     //obtain data from form
-    const {id, Marca, Detalhes, Foto} = req.body;
+    const {id, title, price, year, tag, colection, description} = req.body;
     //read file 
     const datajson = fs.readFileSync("data/local/data.json", "utf-8");
     //parse json

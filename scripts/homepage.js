@@ -1,9 +1,9 @@
 const findHomeListings  = async () => {
             let strHtml = ``;
-            const response = await fetch('http://localhost:4242/api/carros/');
+            const response = await fetch('http://localhost:4242/api/listings/');
             const lv = await response.json();            
 
-            const filterapplied = lv.filter(item => carros.item.tags == "popular" )
+            const filterapplied = lv.filter(item => item.carros.tags == "popular" )
 
             for (artigo of filterapplied ) { 
 
@@ -94,7 +94,7 @@ const findHomeListings  = async () => {
 
         const findAbtractListings  = async () => {
             let strHtml = ``;
-            const response = await fetch('http://localhost:4242/api/carros/');
+            const response = await fetch('http://localhost:4242/api/listings/');
             const lv = await response.json();
 
             const filterapplied = lv.filter(item => item.carros.tags == "abstract" )
@@ -103,15 +103,15 @@ const findHomeListings  = async () => {
                 
                 strHtml += `
                     <div class=" flex-column col-xxl-3 col-xl-3 col-lg-4 p-2 ">
-                        <img src="${artigo.coverimg}" class="img img-fluid w-100">
+                        <img src="" class="img img-fluid w-100">
                         <!--Title-->
                         <div class="d-flex mt-1 ">
                             <div class="d-flex">
-                                <strong class="bold">${artigo.title}</strong>
-                                <div>, ${artigo.year}</div>
+                                <strong class="bold">${artigo.carro.title}</strong>
+                                <div>, 1994</div>
                             </div>
                             <div  class="d-flex ms-auto ">
-                                <div>${artigo.rating}</div>
+                                <div>5*</div>
                                 <i class="bi bi-star-fill" style = "color:#BB86FF;"></i>
                                 <i class="bi bi-star-fill" style = "color:#BB86FF;"></i>
                                 <i class="bi bi-star-fill" style = "color:#BB86FF;"></i>
@@ -147,7 +147,7 @@ const findHomeListings  = async () => {
                         <!-- tags of the item type -->
                         <div class="d-flex flex-wrap my-1 gap-2">
                             <button type="button" class="badgeInfoSmall ">
-                                <i class="bi bi-arrow-up-right"> </i> ${artigo.tags} 
+                                <i class="bi bi-arrow-up-right"> </i> 
                             </button>
                             <button type="button" class="badgeInfoSmall" >
                                 <i class="bi bi-arrow-up-right"> </i>Etherium
@@ -169,7 +169,7 @@ const findHomeListings  = async () => {
                                 <i class="bi bi-star"></i>
                             </div>
                             <div class="d-flex pe-4">
-                                € ${artigo.price}
+                                € 420
                             </div>
                         </div>
                         <!-- buy button -->
