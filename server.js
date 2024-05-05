@@ -4,17 +4,17 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 
+const homepageRouter = require('./routes/homepage');
 const router = require('./routes/index');
-const publicoRouter = require('./routes/publico');
 const privadoRouter = require('./routes/privado');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/', publicoRouter);
-app.use('/api/', router);
-app.use('/bo/', privadoRouter);
+app.use('/', homepageRouter);   //homepage
+app.use('/api/', router);       //editing listings
+app.use('/bo/', privadoRouter); //artist private page
 
 const port = process.env.SERVER_PORT || 8080;
 app.listen(port, () => {

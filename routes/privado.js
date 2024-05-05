@@ -1,9 +1,8 @@
 const privadoRouter = require('express').Router();
 
-
-// Define uma rota para a página HTML
-privadoRouter.get('/gerirCarros', (req, res) => {
-    // Envie o arquivo HTML como resposta para a solicitação HTTP
+// Define rout to HTML page
+privadoRouter.get('/', (req, res) => {
+    // Send HTML as answer to HTTP request
     res.sendFile('templates/backOffice/artistPage.html', { root: "." });
   });
 
