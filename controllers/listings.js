@@ -7,7 +7,7 @@ exports.getAll = async (req, res) => {
     //parse json
     const data = JSON.parse(datajson);
     //return listings
-    return res.send(data.carros);
+    return res.send(data.art);
 }
 
 //returns art listing based on given id
@@ -19,22 +19,22 @@ exports.getById = async (req, res) => {
     //parse json
     const data = JSON.parse(datajson);
     //search listing with the id
-    const carros = data.carros.filter(carros => carros.id == id);
+    const art = data.art.filter(art => art.id == id);
     //return listing
-    res.send(carros);
+    res.send(art);
 }
 
 
-//criate new listing
+//create new listing
 exports.create = async (req, res) => {
     //obtain data from form
-    const {id, title, price, year, tag, colection, description} = req.body;
+    const {id, title, price, year, tag, colection, description, rating} = req.body;
     //read file 
     const datajson = fs.readFileSync("data/local/data.json", "utf-8");
     //parse json
     const data = JSON.parse(datajson);
     //add new listing to the list
-    data.carros.push(req.body);
+    data.art.push(req.body);
     //create a new file with the new listing
     fs.writeFileSync('data/local/data.json', JSON.stringify(data));
     //return
@@ -44,21 +44,24 @@ exports.create = async (req, res) => {
 //update listing
 exports.update = async (req, res) => {
     //get the listing by id
-    const {id, Marca, Detalhes, Foto} = req.body;
+    const {id, title, price, year, tag, colection, description} = req.body;
     //read file
     const datajson = fs.readFileSync("data/local/data.json", "utf-8");
     //parse json
     const data = JSON.parse(datajson);
     //search the listing with the id
-    const carros = data.carros.find(carro => carro.id == id);
+    const art = data.art.find(art => art.id == id);
     //update listing information
-    carros.Marca = Marca;
-    carros.Detalhes = Detalhes;
-    carros.Foto = Foto;
+    art.title = title;
+    art.price = price;
+    art.year = year;
+    art.tag = tag;
+    art.colection = colection;
+    art.description = description;
     //create a new file with the new data
     fs.writeFileSync('data/local/data.json', JSON.stringify(data));
     //return
-    return res.send({id, Marca, Detalhes, Foto});
+    return res.send({id, title, price, year, tag, colection, description});
 }
 
 
@@ -71,18 +74,18 @@ exports.delete = async (req, res) => {
     //parse json
     const data = JSON.parse(datajson);
     //search index of the listing
-    const carroIndex  = data.carros.findIndex(carro => carro.id == id);
+    const artIndex  = data.art.findIndex(art => art.id == id);
     //verify that the listing was found
-    if (carroIndex !== -1) {
+    if (artIndex !== -1) {
         //remove the listing
-        const apagaCarro = data.carros.splice(carroIndex, 1)[0];
+        const deleteListing = data.art.splice(artIndex, 1)[0];
         //create a new file with the new data
         fs.writeFileSync('data/local/data.json', JSON.stringify(data));
         //return
-        return res.status(200).send(apagaCarro);
+        return res.status(200).send(deleteListing);
     } else {
         //if not found, return error
-        return res.status(404).send("Carro não encontrado");
+        return res.status(404).send("Art work not found");
     }
 }
 

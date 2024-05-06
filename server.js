@@ -12,6 +12,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use(express.static('styles'));
+
 app.use('/', homepageRouter);   //homepage
 app.use('/api/', router);       //editing listings
 app.use('/bo/', privadoRouter); //artist private page
