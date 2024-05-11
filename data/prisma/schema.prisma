@@ -12,3 +12,22 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Listing {
+  id            Int    @id @default(autoincrement())
+  title         String
+  price         String?
+  year          Int?
+  tags          String?
+  colection     String?
+  description   String?
+  coverimg      String?
+  rating        String?
+  published     Boolean   @default(false)
+  artist        String?
+  artistId      Int?
+}
+
+
+
+

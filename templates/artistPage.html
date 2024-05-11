@@ -279,7 +279,7 @@
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editTitle">...</h5>
+                    <h5 class="modal-title" id="tiTitle">...</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -302,7 +302,7 @@
                             <form>
                                 <label for="title">Title:</label>
                                 <div class="d-flex">
-                                    <input type="text" id="title" name="title" class="col-5 h-36" value="...">
+                                    <input type="text" id="editTitle" name="title" class="col-5 h-36" value="...">
                                     <p class="modalComents ms-3">
                                         Title is the time you shine!<br>
                                         Try to fit in 50 characters to keep it easy to read.<br>
@@ -562,12 +562,11 @@
         const publishListing= async () => {
             var dados = {
                 title: document.getElementById("mtitle").value,
-                price: document.getElementById("mprice").value,
-                year: document.getElementById("myear").value,
-                tag: document.getElementById("mtag").value,
-                colection: document.getElementById("mcolection").value,
-                description: document.getElementById("mdescription").value,
-                rating: 0,
+                // price: document.getElementById("mprice").value,
+                // year: document.getElementById("myear").value,
+                // tag: document.getElementById("mtag").value,
+                // colection: document.getElementById("mcolection").value,
+                // description: document.getElementById("mdescription").value,
             };
             
             fetch('http://localhost:4242/api/listings/create', {
@@ -582,7 +581,7 @@
                 return response.json();
             })
             .then(data => {
-                resposta="The listing "+dados.Marca+" was added successfully!"
+                resposta="The listing "+dados.title+" was added successfully!"
                 alert(resposta)
                 fListings();
 
@@ -616,14 +615,14 @@
         };
 
         const populateModal = async (id) => {
-            const response = await fetch('http://localhost:4242/api/listings/' + id);
-            const lv = await response.json();
+            const response = await fetch('http://localhost:4242/api/listings/'+id);
+            const artigo = await response.json();
 
-
-            document.getElementById("editTitle").value = lv.title;
-            document.getElementById("editPrice").value = lv.price;
-            document.getElementById("editYear").value = lv.year;
-            document.getElementById("editTag").value = lv.tag;
+            document.getElementById("tiTitle").innerHTML = artigo.title;
+            document.getElementById("editTitle").value = artigo.title;
+            document.getElementById("editPrice").value = artigo.price;
+            document.getElementById("editYear").value = artigo.year;
+            document.getElementById("editTag").value = artigo.tag;
         }
 
         const editinglisting= async () => {
@@ -635,9 +634,9 @@
                 strHtml += `
                     <tr>
                         <td>${artigo.id}</td>
-                        <td>${artigo.Marca}</td>
-                        <td>${artigo.Detalhes}</td>
-                        <td>${artigo.Foto}</td>
+                        <td>${artigo.title}</td>
+                        <td>${artigo.description}</td>
+                        <td>${artigo.coverimg}</td>
                         <td>
                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#upModal" onclick="preparaEditCarro(${artigo.id})"><i class="fa fa-pencil"></i> Editar</button>
                             <button type='button' class='btn btn-danger' onclick="apagaCarro(${artigo.id})"><i class="fa fa-trash"></i> Apagar</button>
