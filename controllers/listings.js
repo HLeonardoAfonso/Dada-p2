@@ -69,7 +69,7 @@ exports.create = async (req, res) => {
 
 //update listing
 exports.update = async (req, res) => {
-    const { title, price, year, tags, colection, description, coverimg, rating } = req.body;
+    const { id, title, price, year, tags, colection, description, coverimg, rating } = req.body;
     try {
         //procurar o carro com id e atualizar os dados
         const art = await prisma.Listing.update({
