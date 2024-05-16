@@ -6,15 +6,15 @@ privadoRouter.get('/', (req, res) => {
   res.sendFile('templates/artistPage.html', { root: "." });
 });
 
-// Define uma rota para a página HTML
-privadoRouter.get('/styles', (req, res) => {
-  res.sendFile('/styles/style.css', { root: "." });
-});
+// // Define uma rota para a página HTML
+// privadoRouter.get('/styles', (req, res) => {
+//   res.sendFile('/styles/style.css', { root: "." });
+// });
 
 
-// Define uma rota para a página HTML
-privadoRouter.get('/images', (req, res) => {
-  res.sendFile('/assets/images/logo.svg', { root: "." });
-});
+// // Define uma rota para a página HTML
+// privadoRouter.get('/images', (req, res) => {
+//   res.sendFile('/assets/images/logo.svg', { root: "." });
+// });
 
 module.exports = privadoRouter;

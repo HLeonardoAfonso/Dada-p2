@@ -2,7 +2,6 @@ const artRouter = require('express').Router();
 const controller = require('../controllers/listings');
 
 
-artRouter.get('/testCon', controller.testConnection);
 //CRUD for the listings
 artRouter.get('/', controller.getAll);
 artRouter.get('/:id', controller.getById);

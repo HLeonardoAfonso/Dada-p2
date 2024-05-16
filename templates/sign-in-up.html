@@ -230,26 +230,7 @@
         </div>
     </footer>
     <script type="text/JavaScript">
-        function validaPassword() {
-            var password1 = document.getElementById("pswd").value;
-            var password2 = document.getElementById("coPwd").value;
-    
-            // Validate through RegularExpression
-            var passwordcheck1 =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-    
-            if (!passwordcheck1.test(password1)){
-                alert("Password inválida");
-                return false;
-            }
-            if(!password1.match(password2)){
-                alert("A password e a confirmação não são iguais");
-            return false;
-            }
-            novoUser();
-            return true;
-        }
-
-        const novoUser = async () => {
+const novoUser = async () => {
             var dados = {
                 email: document.getElementById("email").value,
                 name: document.getElementById("nome").value,
@@ -279,6 +260,28 @@
                 alert("Houve um erro:", error);
             });
         };
+
+        function validaPassword() {
+            var password1 = document.getElementById("pswd").value;
+            var password2 = document.getElementById("coPwd").value;
+    
+            // Validate through RegularExpression
+            // var passwordcheck1 =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+    
+            // if (!passwordcheck1.test(password1)){
+            //     alert("Password inválida not ok");
+            //     return false;
+            // }
+            if(!password1.match(password2)){
+                alert("A password e a confirmação não são iguais");
+            return false;
+            }
+            novoUser();
+            alert("ok");
+            return true;
+        }
+
+        
     </script>
 
 <script type="text/JavaScript">
