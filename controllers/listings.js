@@ -14,9 +14,14 @@ exports.testConnection = async (req, res) => {
     }
 }
 
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
 //returns all art listings
 exports.getAll = async (req, res) => {
     try {
+        //await sleep(10000); TO TEST SKELETON LOADING
         //le toda a tabela
         const response = await prisma.Listing.findMany();
         res.status(200).json(response)
@@ -45,7 +50,7 @@ exports.getById = async (req, res) => {
 
 //create new listing
 exports.create = async (req, res) => {
-    const { title, price, year, tags, colection, description, coverimg, rating } = req.body;
+    const { title, price, year, tags, colection, description, coverimg, rating } = req.body; // or data
     try {
         //criar um novo carro
         const art = await prisma.Listing.create({
