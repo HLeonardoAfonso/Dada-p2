@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(express.static('styles'));
+app.use(express.static('styles')); //inport styles
 
 app.use('/', homepageRouter);   //homepage
 app.use('/api/', router);       //editing listings
