@@ -1,7 +1,14 @@
+const middleware = require('../middleware/auth.js');
 const privadoRouter = require('express').Router();
+const path = require('path');
 
 // Define rout to HTML page
 privadoRouter.get('/', (req, res) => {
+  // Send HTML as answer to HTTP request
+  res.sendFile('templates/welcome.html', { root: "." });
+});
+
+privadoRouter.get('/artist', middleware.verificarToken, (req, res) => {
   // Send HTML as answer to HTTP request
   res.sendFile('templates/artistPage.html', { root: "." });
 });

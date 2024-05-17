@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/logo.svg">
+    <link href="style.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Dá-me</title>
+</head>
+<body class="d-flex align-items-start flex-column" style="height: 100vh;">
+    <!-- Header -->
+    <header>
+        <div class="flex-row d-flex align-items-center gap-4" >
+            <div class="d-flex align-items-center ">
+                <a href="/"><img src="/images/logo.svg"></a>
+                
+                <div class="dropdown">
+                    <button class="btn greyed  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Categories
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">All</a></li>
+                        <li><a class="dropdown-item" href="#">Abstract</a></li>
+                        <li><a class="dropdown-item" href="#">Cartoon</a></li>
+                        <li><a class="dropdown-item" href="#">3D</a></li>
+                        <li><a class="dropdown-item" href="#">FanArt</a></li>
+                        <li><a class="dropdown-item" href="#">Manga</a></li><li><a class="dropdown-item" href="#">All</a></li>
+                        <li><a class="dropdown-item" href="#">Retro</a></li>
+                        <li><a class="dropdown-item" href="#">PixelArt</a></li><li><a class="dropdown-item" href="#">All</a></li>
+                        <li><a class="dropdown-item" href="#">Space</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex  align-items-center col gap-5" >
+                <form class="form-floating col d-flex align-items-center text-center" >
+                    <input type="text" class="form-control"  id="exampleInputSearch" aria-describedby="Search area" placeholder="Search" >
+                    <label class="text-center" for="floatingInput "><i class="bi bi-search "></i> Search</label>
+                </form>
+                <a>Buy</a>
+                <a>Sell</a>    
+                <div class="dropdown">
+                    <button class="btn greyed  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        🇵🇹 € EUR
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">€ EUR</a></li>
+                        <li><a class="dropdown-item" href="#">$ USD</a></li>
+                        <li><a class="dropdown-item" href="#">£ GBP</a></li>
+                    </ul>
+                </div>  
+            </div>
+            <div class="col-md-2 d-inline-flex gap-2 ">
+                <a href="/register" class="underline-none fit-100">
+                    <button class="btn-white  fit-100">
+                        <i class="bi bi-person-circle"></i> &nbsp; Log in / Register
+                    </button>
+                </a>
+                <a ><i class="bi bi-star fs-4 " ></i></a>
+                <a ><i class="bi bi-cart fs-4" ></i></a>
+            </div>
+        </div>
+        <div class="pt-3 d-flex  align-items-center gap-2 justify-content-between">
+            <a href="/search"><button class="btn-cian ">All</button></a>
+            <button class="btn-cian">Abstract</button>
+            <button class="btn-cian">Cartoon</button>
+            <button class="btn-cian">3D</button>
+            <button class="btn-cian">Fan Art</button>
+            <button class="btn-cian">Manga</button>
+            <button class="btn-cian">Retro</button>
+            <button class="btn-cian">Pixel Art</button>
+            <button class="btn-cian">Space</button>
+            
+            <button class="btn-white btn-large col-2">
+                <i class="bi bi-download"></i> &nbsp; Download App
+            </button>
+        </div>
+    </header>
+
+    <!-- Beadcrumbs -->
+    <nav aria-label="breadcrumb" style="padding: 0 30px; width: 100vw;">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Search</li>
+        </ol>
+    </nav>
+
+    <main class="d-flex" style="padding: 0 30px; width: 100vw;">
+
+        <!-- Filter -->
+        <div class="col-xl-2 col-md-3">
+            <div class="d-flex justify-content-between">
+                <h3>Filters</h3>
+                <button class="btn-grey" style="width: fit-content;"><img src="/icons/save.png">&nbsp; Save search</button>
+            </div>
+            <hr>
+            <p>Keyword search</p>
+            <input type="text" name="name" placeholder="&#128269; Search" onkeyup="processChange()" />
+            <hr>
+            <!--Style-->
+            <h5>Style</h5>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="toggleAll" selected="false" >
+                <label class="form-check-label" for="toggleAll">All</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input sty" type="checkbox" role="switch" id="threeD" onclick="filterbyid(this.id)"  >
+                <label class="form-check-label" for="threeD">3D</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input sty " type="checkbox" role="switch" id="abstract" onclick="filterbyid(this.id)" >
+                <label class="form-check-label" for="abstract">Abstract</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input sty " type="checkbox" role="switch" id="algorithmic" onclick="filterbyid(this.id)">
+                <label class="form-check-label" for="algorithmic">Algorithmic</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input sty " type="checkbox" role="switch" id="cartoon" onclick="filterbyid(this.id)" >
+                <label class="form-check-label" for="cartoon">Cartoon</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input sty " type="checkbox" role="switch" id="fan-art" onclick="filterbyid(this.id)" >
+                <label class="form-check-label" for="fan-art">Fan Art</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input sty " type="checkbox" role="switch" id="futurism" onclick="filterbyid(this.id)">
+                <label class="form-check-label" for="futurism">Futurism</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input sty " type="checkbox" role="switch" id="mixed" onclick="filterbyid(this.id)">
+                <label class="form-check-label" for="mixed">Mixed & Integrated</label>
+            </div>
+            <p>Show more</p>
+            <hr>
+            <!--Artist-->
+            <h5>Artist</h5>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="toggleAllArtist" selected="false">
+                <label class="form-check-label" for="toggleAll">All</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input togArtist" type="checkbox" role="switch" id="the-rusted-pixel" onclick="filterbyid(this.id)">
+                <label class="form-check-label" for="the-rusted-pixel">The Rusted Pixel</label>
+            </div>
+            <p>Show more</p>
+            <hr>
+            <!--Medium-->
+            <h5>Medium</h5>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="toggleAllMedium" selected="false">
+                <label class="form-check-label" for="toggleAll">All</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input togMedium " type="checkbox" role="switch" id="painting" onclick="filterbyid(this.id)">
+                <label class="form-check-label" for="painting">Painting</label>
+            </div>
+            <p>Show more</p>
+            <hr>
+            <!--Rating-->
+            <h5>Medium</h5>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="5stars">
+                <label class="form-check-label" for="5stars">5</label>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="4stars">
+                <label class="form-check-label" for="4stars">4</label>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="3stars">
+                <label class="form-check-label" for="3stars">3</label>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="2stars">
+                <label class="form-check-label" for="2stars">2</label>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="1stars">
+                <label class="form-check-label" for="1stars">1</label>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+            </div>
+            <br>
+        </div>
+        <!-- Search -->
+        <div class="col ms-3">
+            <div class="d-flex justify-content-between">
+                <div class="d-flex" >
+                    <h3 class="me-2">Search</h3>
+                    <div id="filterBtn" class="d-flex" style="width: fit-content;">
+                        <!--Display JS botons-->
+                    </div>
+                </div>                
+                <div class="dropdown">
+                    <button class="btn greyed  dropdown-toggle" type="button" id="dropdownSortBy" data-bs-toggle="dropdown" aria-expanded="false">
+                        <u>Sort by</u>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownSortBy">
+                        <li><a class="dropdown-item" href="#">Most Popular</a></li>
+                        <li><a class="dropdown-item" href="#">Most Recent</a></li>
+                        <li><a class="dropdown-item" href="#">Space</a></li>                      
+                    </ul>
+                </div>
+            </div>
+            <div id="cardListing" class="d-flex flex-wrap">
+                <!--Display JSON file-->
+            </div>
+        </div>
+    </main>  
+
+    <!-- Footer -->
+    <footer class="mt-auto ">
+        <div class="flex-column">
+            <div class="d-flex mx-2 ">
+                <div class="d-flex col-3 flex-column mx-2">
+                    <div class="d-flex gap-4  align-items-center  ">
+                        <a href="/" class="col-4 "><img src="/images/logo.svg" class="fit-100"></a>
+                        <div class=" flex-column mx-auto gap-2 align-items-center ">
+                            <h6 class="text-center "> DADA© 2023</h6>
+                            <div class="d-flex  flex-wrap gap-2 m-2">
+                                <i class="bi bi-behance" ></i>
+                                <i class="bi bi-pinterest"></i>
+                                <i class="bi bi-tiktok"></i>
+                                <i class="bi bi-instagram"></i>
+                                <i class="bi bi-twitter"></i>
+                                <i class="bi bi-youtube"></i>
+                                <i class="bi bi-snapchat"></i>
+                                <i class="bi bi-facebook"></i>
+                            </div>
+                        </div> 
+                        
+                    </div>
+                            
+                    <div class="flex-row align-items-center m-2">
+                            <div class="text-center m-2">Download</div>
+                            <div class="d-flex d-row gap-2 mx-2">
+                                <button class="btn-white fit-100">
+                                    <i class="bi bi-apple"></i> App Store
+                                </button>
+        
+                                <button class="btn-white fit-100">
+                                    <i class="bi bi-play"></i> Google Play
+                                </button>
+        
+                            </div>
+                    </div>
+                    
+                </div>
+                <div class=" d-flex col-3 flex-row mx-2 ">
+                    <div class="col  mx-auto justify-content-between ">
+                        <p>About</p>
+                        <p class="smalltext ">About DADA</p>
+                        <p class="smalltext ">Collections</p>
+                        <p class="smalltext ">Who we are</p>
+                        <p class="smalltext ">Contacts</p>
+                        <p class="smalltext ">Jobs</p>
+                        <p class="smalltext ">News</p>
+                        <p class="smalltext ">Archive</p>
+                        <p class="smalltext ">Press</p>
+                    </div>
+                    <div class="col">
+                        <p>Buy</p>
+                        <p class="smalltext ">Hire expert</p>
+                        <p class="smalltext ">FAQ</p>
+                        <p class="smalltext ">Payment</p>
+                        <p class="smalltext ">Help</p>
+                        <p class="smalltext ">Testimonials</p>
+                        <p class="smalltext ">Buyer Policy</p>
+                        <p class="smalltext ">Gift Card</p>
+                        <p class="smalltext ">Refer a friend</p>
+                    </div>
+                    <div class="col">
+                        <p>Sell</p>
+                        <p class="smalltext ">Apply as artist</p>
+                        <p class="smalltext ">Artist's handbook</p>
+                        <p class="smalltext ">Payment</p>
+                        <p class="smalltext ">Help</p>
+                        <p class="smalltext ">Seller Policy</p>
+                        <p class="smalltext ">FAQ</p>
+                    </div>
+                </div>
+                <div class="d-flex col-3 flex-column align-items-center mx-2">
+                    <h4 >Over 500+ Reviews</h4>
+                    <img src="/images/trustpilot.png" class="img-fluid">
+                    <img src="/images/starsvoting.png" class="img-fluid">
+                    <p class="mt-4 mb-0 fw-bold" >Secure Payment</p>
+                    <div class="d-flex gap-4 m-1">
+                        <i class="bi bi-paypal"></i>
+                        <i class="bi bi-currency-bitcoin"></i>
+                        <i class="bi bi-stripe"></i>
+                        <i class="bi bi-amazon"></i>
+                    </div>
+                </div>
+                <div class="d-flex col-3 flex-column     ">
+                    <div class="d-flex gap-3 m-2  align-items-center ">
+                        <div class=""><button class="btn-purp ">
+                            <i class="bi bi-gift "></i> &nbsp; Gift Card
+                        </button></div>
+                        <div class="text-end px-5 ">DADA© 2023</div>
+                    </div>
+                    <div class="mx-2 px-5">
+                        <p  class="smalltext fw-bold text-end">www.dada.art</p>
+                        <p  class="smalltext text-end ">New Road 515 , West Side, Portugal</p>
+                    </div>
+                    <div class="m-2">
+                        <p>Subscribe to newsletter</p>
+                        <form class="d-flex pe-5">
+                            <input type="text" class="form-control d-flex "  id="newsletter" aria-describedby="Search area" placeholder="your email here"  >
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            
+
+            <hr>
+            <div class="d-flex text-center">
+                <div class="col"><h6>Terms and Conditions</h6></div>
+                <div class="col"><h6>Privacy Policy</h6></div>
+                <div class="col"><h6>Cookie Policy</h6></div>
+                <div class="col"><h6>Legal Notice</h6></div>
+            </div>
+            
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/scripts/items.js"  ></script>
+    <script src="/scripts/disableToggles.js"  ></script>
+</body>
+</html>
