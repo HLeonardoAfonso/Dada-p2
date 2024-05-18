@@ -6,7 +6,6 @@ const authRouter = require('./auth');
 
 router.use('/listings', artRouter);
 router.use('/auth', authRouter);
-router.use('/register', authRouter);
 
 
 

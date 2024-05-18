@@ -15,7 +15,7 @@
     <header>
         <div class="flex-row d-flex align-items-center gap-4" >
             <div class="d-flex align-items-center ">
-                <a href="/"><img src="http://localhost:4242/bo/images"></a>
+                <a href="/"><img src="images/logo.svg"></a>
                 
                 <div class="dropdown">
                     <button class="btn greyed  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -286,7 +286,7 @@
                     <div class="d-flex flex-wrap">
                         <p class="modalComents col-12">Cover</p>
                         <div class="col-4">
-                            <img src="..." class="img img-fluid w-100 mb-3">
+                            <img src="..." class="img img-fluid w-100 mb-3" id="editCoverIMG">
                             <p class="modalComents col-12">Add more items to the listing</p>
                             <div class="w-100 h-50 greyed d-flex justify-content-center align-items-center">
                                 <div class="btn-white px-2">
@@ -501,7 +501,7 @@
     <script>
         const fListings  = async () => {
             let strHtml = ``;
-            const response = await fetch('http://localhost:4242/api/listings');
+            const response = await fetch('/api/listings');
             const lv = await response.json();
 
             // const filterapplied = lv.filter(item => item.tags == )
@@ -509,7 +509,7 @@
             for (const artigo of lv) {
                 strHtml += `
                     <div class=" flex-column col-xxl-3 col-md-3 p-2 ">
-                        <img src="http://localhost:4242/${artigo.coverimg}" class="img img-fluid w-100">
+                        <img src="${artigo.coverimg}" class="img img-fluid w-100">
                         <div class="d-flex">
                             <div class="d-flex">
                                 <strong class="bold">${artigo.title}</strong>
@@ -570,7 +570,7 @@
                 rating: "0",
             };
             
-            fetch('http://localhost:4242/api/listings/create', {
+            fetch('/api/listings/create', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(dados)
@@ -596,7 +596,7 @@
 
         const deleteListing = async () => {
             let id = document.getElementById("editID").value
-            fetch("http://localhost:4242/api/listings/delete/" + id, {
+            fetch("/api/listings/delete/" + id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             })
@@ -617,10 +617,11 @@
         };
 
         const populateModal = async (id) => {
-            const response = await fetch('http://localhost:4242/api/listings/'+id);
+            const response = await fetch('/api/listings/'+ id);
             const artigo = await response.json();
 
             document.getElementById("tiTitle").innerHTML = artigo.title;
+            document.getElementById("editCoverIMG").src = artigo.coverimg;
             document.getElementById("editTitle").value = artigo.title;
             document.getElementById("editPrice").value = artigo.price;
             document.getElementById("editYear").value = artigo.year;
@@ -636,7 +637,7 @@
                 // description: document.getElementById("editDescription").value,
                 price: document.getElementById("editPrice").value,
             };
-            fetch('http://localhost:4242/api/listings/update', {
+            fetch('/api/listings/update', {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(dados),

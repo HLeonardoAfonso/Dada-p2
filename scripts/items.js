@@ -126,7 +126,7 @@
 
     const findListings  = async () => {
         let strHtml = ``;
-        const response = await fetch('listings.json');
+        const response = await fetch('api/listings/');
         const lv = await response.json();
 
         // const filterapplied = lv.filter(item => item.tags == )
@@ -153,7 +153,7 @@
                         </div>
                         <!--Artist-->
                         <div class="d-flex justify-content-between align-items-center">
-                            <div>by <a href="artist-page.html">The Rusted Pixel</a></div>
+                            <div>by <a href="/artist">The Rusted Pixel</a></div>
                             <div  class="d-inline-flex gap-1" >
                                 <button type="button" class="badgeIconSmall" >
                                     <i class="bi bi-check-lg"></i>

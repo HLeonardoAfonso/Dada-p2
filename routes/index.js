@@ -14,4 +14,10 @@ homepageRouter.get('/search', (req, res) => {
 });
 
 
+// delete later
+
+homepageRouter.get('/artist', (req, res) => {
+  res.sendFile('templates/artistPage.html', { root: "." });
+});
+
 module.exports = homepageRouter;
