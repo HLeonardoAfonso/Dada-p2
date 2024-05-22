@@ -32,7 +32,7 @@
 
     const findFilterListings  = async () => {
         let strHtml = ``;
-        const response = await fetch('listings.json');
+        const response = await fetch('/api/listings');
         const lv = await response.json();
 
         const filterapplied = lv.filter(item => toggledArray.includes(item.tags));
