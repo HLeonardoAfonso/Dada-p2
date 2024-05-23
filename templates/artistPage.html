@@ -188,13 +188,19 @@
                         <div class="col-4">
                             <div class="w-100 h-50 greyed d-flex justify-content-center align-items-center">
                                 <div class="btn-white px-2">
-                                    <i class="bi bi-upload me-2"></i>Browse or Drag-and-drop
+                                    <!-- <i class="bi bi-upload me-2"></i>Browse or Drag-and-drop -->
+                                    <form>
+                                        <div class="form-group">
+                                          <label for="exampleFormControlFile1">Example file input</label>
+                                          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                        </div>
+                                      </form>
                                 </div>
                             </div>
                         </div>
                         <div class="col pl-30">
                             <div class="d-flex pb-3">
-                                <button type="button" class="btn-grey me-3 col-4" data-bs-dismiss="modal" >Save as Draft</button>
+                                <button type="button" class="btn-grey me-3 col-4" data-bs-dismiss="modal"  onclick="generateName()" >Save as Draft</button>
                                 <button type="button" class="btn-purp mx-3 col-4" data-bs-dismiss="modal" onclick="publishListing()"><img src="/icons/upload.png" class="icon">Publish</button>
                             </div>
                             <form>
@@ -821,6 +827,7 @@
             }
         findListings();
     </script>
+    
 </body>
 </html>
 

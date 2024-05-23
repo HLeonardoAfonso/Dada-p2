@@ -4,9 +4,16 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 
+
+const multer = require('multer');
+// const path = require('path');
+
+
+
 const homepageRouter = require('./routes');
 const router = require('./routes/api');
 const privateRouter = require('./routes/private');
+const uploadRouter = require('./routes/upload');
 
 const app = express();
 app.use(bodyParser.json());
@@ -21,7 +28,10 @@ app.use(express.static('scripts')); //inport assets
 
 app.use('/', homepageRouter);   //homepage
 app.use('/api/', router);       //editing listings api
-app.use('/artist/', privateRouter); //artist private page
+app.use('/artist/', privateRouter);  //artist private page
+app.post('/upload', uploadRouter );
+
+
 
 const port = process.env.SERVER_PORT || 8080;
 app.listen(port, () => {
