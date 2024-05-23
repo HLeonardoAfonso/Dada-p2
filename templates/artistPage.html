@@ -191,10 +191,10 @@
                                     <!-- <i class="bi bi-upload me-2"></i>Browse or Drag-and-drop -->
                                     <form>
                                         <div class="form-group">
-                                          <label for="exampleFormControlFile1">Example file input</label>
-                                          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                            <label for="exampleFormControlFile1">Example file input</label>
+                                            <input type="file" class="form-control-file" id="inputfile">
                                         </div>
-                                      </form>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -829,20 +829,27 @@
     </script>
     <script>
         const uploadImage = async () => {
+            var input = document.getElementById('inputfile');
+            var file = input.files[0];
+    
             fetch('/upload', {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(dados),
+                headers: { },
+                body: file,
+                
             })
-            .then((response) => {
-                // Verifica se a resposta foi bem sucedida
-                if (!response.ok) {
-                    throw new Error("Did not upload image");
-                }
-                // Converte a resposta para JSON
-                return response.json();
-            }) 
+            console.log(file)
+            // .then((response) => {
+            //     // Verifica se a resposta foi bem sucedida
+            //     if (!response.ok) {
+            //         throw new Error("Did not upload image");
+            //     }
+            //     // Converte a resposta para JSON
+            //     return response.json();
+            // }) 
         }
+
+        // const uploadImage = () => upload(input.files[0]);
     </script>
 
     
