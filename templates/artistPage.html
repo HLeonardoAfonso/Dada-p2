@@ -200,7 +200,7 @@
                         </div>
                         <div class="col pl-30">
                             <div class="d-flex pb-3">
-                                <button type="button" class="btn-grey me-3 col-4" data-bs-dismiss="modal"  onclick="generateName()" >Save as Draft</button>
+                                <button type="button" class="btn-grey me-3 col-4" data-bs-dismiss="modal"  onclick="uploadImage()" >Save as Draft</button>
                                 <button type="button" class="btn-purp mx-3 col-4" data-bs-dismiss="modal" onclick="publishListing()"><img src="/icons/upload.png" class="icon">Publish</button>
                             </div>
                             <form>
@@ -827,6 +827,24 @@
             }
         findListings();
     </script>
+    <script>
+        const uploadImage = async () => {
+            fetch('/upload', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(dados),
+            })
+            .then((response) => {
+                // Verifica se a resposta foi bem sucedida
+                if (!response.ok) {
+                    throw new Error("Did not upload image");
+                }
+                // Converte a resposta para JSON
+                return response.json();
+            }) 
+        }
+    </script>
+
     
 </body>
 </html>
