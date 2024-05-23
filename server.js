@@ -5,25 +5,16 @@ const cors = require('cors');
 const express = require('express');
 const multer = require('multer');
 
-
 const storage = multer.diskStorage({
-  destination: 'files/upload/', 
-  filename: (req , file , callback) => {
-    return callback (null, `${Date.now()}${path.extname(file.originalname)}`)
-  }
+    destination: 'files/upload/', 
+    filename: (req , file , callback) => {
+        return callback (null, `${Date.now()}${path.extname(file.originalname)}`)
+    }
 })
 
-const upload = multer ({
-    storage : storage,
-
-})
-
+const upload = multer ({ storage : storage })
 
 const path = require('path');
-
-// const upload = multer({ dest: 'files/upload/'});
-
-
 
 const homepageRouter = require('./routes');
 const router = require('./routes/api');
@@ -34,24 +25,25 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+// Static inports
+
 app.use(express.static('templates/index.html'));
 
 app.use(express.static('styles')); //inport styles
 app.use(express.static('assets')); //inport assets
-app.use(express.static('files/uploads/')); //inport uploaded fotos 
 app.use(express.static('scripts')); //inport assets
+
+app.use(express.static('files/uploads/')); //inport uploaded fotos
+
+// URL routing
 
 app.use('/', homepageRouter);   //homepage
 app.use('/api/', router);       //editing listings api
 app.use('/artist/', privateRouter);  //artist private page
 
-
-
 app.post('/upload', upload.single('file'), (req, res) => {
     res.json(req.file);
 });
-
-
 
 const port = process.env.SERVER_PORT || 8080;
 app.listen(port, () => {
