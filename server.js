@@ -41,7 +41,7 @@ app.use('/', homepageRouter);   //homepage
 app.use('/api/', router);       //editing listings api
 app.use('/artist/', privateRouter);  //artist private page
 
-app.post('/upload', upload.single('file'), (req, res) => {
+app.post('/upload', upload.single('coverimg'), (req, res) => {
     res.json(req.file);
 });
 
