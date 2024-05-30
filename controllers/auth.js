@@ -10,17 +10,15 @@ exports.signin = async (req, res) => {
         const user = await prisma.users.findUnique({
             where: {email: email},
             
-        })
-        console.log("email find")
-       
+        })       
         if (user) {
             var passwordIsValid = bcrypt.compareSync(password,user.password);
-          if (passwordIsValid) {
-            const accessToken = authenticateUtil.generateAccessToken({ id: user.id, name: user.name, isAdmin : user.isAdmin });
-            res.status(200).json({ name: user.name, token: accessToken });
-          }else{
-                res.status(401).json({ msg: "Password inválida! signin control isiu" });
-          }
+            if (passwordIsValid) {
+                const accessToken = authenticateUtil.generateAccessToken({ id: user.id, name: user.name, isAdmin : user.isAdmin });
+                res.status(200).json({ name: user.name, id: user.id, token: accessToken });
+            } else {
+                res.status(401).json({ msg: "Invalid Password !!" });
+            }
         }
     } catch (error) {
         res.status(401).json({ msg: error.message })
@@ -57,7 +55,23 @@ exports.readToken= async (req, res) =>{
             res.status(401).json(err);
             //console.error('Erro ao verificar o token:', err);
           });
-    }catch(error){
+    } catch (error){
         res.status(401).json({ msg: error.message })
+    }
+}
+
+exports.userData = async (req, res) => {
+    const id = req.params.x*1;
+    try {
+        //procura o carro com o id
+        const response = await prisma.Users.findUnique({
+            where: {
+                id: id,
+            },
+        })
+        //devolve o carro
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(404).json({ msg: error.message })
     }
 }

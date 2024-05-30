@@ -98,18 +98,19 @@ const findListings  = async () => {
 findListings();
 
 function filterbyid(id) {
+    let strBtnHtml = ``;
     if (toggledArray.includes(id)) {
         toggledArray.splice(toggledArray.indexOf(id), 1);
         if (toggledArray.length == 0) {
             findListings();
+            document.getElementById("filterBtn").innerHTML = strBtnHtml;
             return 0;
         }
     } else {
         toggledArray.push(id);
     }
-    console.log(toggledArray);
+    // console.log(toggledArray);
 
-    let strBtnHtml = ``;
     for (const tag of toggledArray) {
         strBtnHtml += `
             <div class="btn-grey mx-2" style="width: fit-content;" onclick="closeTag()">
@@ -131,7 +132,7 @@ const findFilterListings  = async () => {
     const lv = await response.json();
 
     const filterapplied = lv.filter(item => toggledArray.includes(item.tags));
-    console.log(filterapplied);
+    // console.log(filterapplied);
 
     for (const artigo of filterapplied) {
         strHtml += `

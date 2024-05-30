@@ -53,10 +53,11 @@
                 </div>  
             </div>
             <div class="col-md-2 d-inline-flex gap-2 ">
-                <button class="btn-white  fit-100">
-                    <div class="col-md-2 " style="width: 25px; height: 25px; border-radius: 75px; overflow: hidden; display: flex; justify-content: center;"  >
+                <button class="btn-white fit-100"  id="btn-profile">
+                    <!-- <div class="col-md-2 " style="width: 25px; height: 25px; border-radius: 75px; overflow: hidden; display: flex; justify-content: center;"  >
                         <img src="/images/Artimage1.png" >
-                    </div> &nbsp; &nbsp; &nbsp; So Lazo
+                    </div>
+                    <div>&nbsp; &nbsp; &nbsp; So Lazo</div> -->
                 </button>
                 <a ><i class="bi bi-star fs-4 " ></i></a>
                 <a ><i class="bi bi-cart fs-4" ></i></a>
@@ -96,12 +97,18 @@
     <div class="d-flex flex-row p-0 my " style="gap: 10px" >
         <!-- Artist image -->
         <div class="col-md-2 " style="width: 150px; height: 150px; border-radius: 75px; overflow: hidden; display: flex; justify-content: center;"  >
-            <img src="/images/Artimage1.png" >
+            <img src="/images/Artimage1.png" > 
+            
+            
+<!--find it from data-->
+
+
+
         </div>
         <!-- Name, badges, socials, location -->   
         <div class="d-flex flex-column m-2">
             <div class="d-inline-flex align-items-center gap-2">
-                <h1>So Lazo</h1>
+                <h1 id="mArtist">So Lazo</h1>
                 <div  class="d-inline-flex align-items-center gap-2  " >
 
                     <button type="button" class="badgeicon  " >
@@ -293,7 +300,7 @@
                     <div class="d-flex flex-wrap">
                         <p class="modalComents col-12">Cover</p>
                         <div class="col-4">
-                            <img src="..." class="img img-fluid w-100 mb-3" id="editCoverIMG">
+                            <img src="" class="img img-fluid w-100 mb-3" id="editCoverIMG">
                             <p class="modalComents col-12">Add more items to the listing</p>
                             <div class="w-100 h-50 greyed d-flex justify-content-center align-items-center">
                                 <div class="btn-white px-2">
@@ -506,9 +513,47 @@
     </footer>
 
     <script>
-        const findListings  = async () => {
+        const populateArtist  = async () => {
+            let x = localStorage.getItem("id");
             let strHtml = ``;
-            const response = await fetch('/api/listings');
+
+            const response = await fetch("/api/auth/" + x, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" },
+            });
+            const artigo = await response.json();
+
+            document.getElementById("mArtist").innerHTML = artigo.name;
+            strHtml += `
+                <div class="col-md-2 " style="width: 25px; height: 25px; border-radius: 75px; overflow: hidden; display: flex; justify-content: center;"  >
+                    <img src="${artigo.profilePic}" >
+                </div>
+                <div>&nbsp; &nbsp; &nbsp; ${artigo.profilePic}</div>
+
+                    <img src="" class="img img-fluid w-100">
+            `
+            
+            document.getElementById("cardListing").innerHTML = strHtml;
+
+            // <div class="col-md-2 " style="width: 25px; height: 25px; border-radius: 75px; overflow: hidden; display: flex; justify-content: center;"  >
+            //             <img src="/images/Artimage1.png" >
+            //         </div>
+            //         <div>&nbsp; &nbsp; &nbsp; So Lazo</div>
+            // document.getElementById("editCoverIMG").src = artigo.coverimg;
+            // document.getElementById("editTitle").value = artigo.title;
+            // document.getElementById("editPrice").value = artigo.price;
+        }
+        populateArtist();
+
+        const findListings  = async () => {
+            let x = localStorage.getItem("id");
+
+            let strHtml = ``;
+
+            const response = await fetch("/api/listings/artist/" + x, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" },
+            });
             const lv = await response.json();
 
             for (const artigo of lv) {
@@ -565,18 +610,22 @@
         findListings();
 
         const publishListing= async () => {
+
+            let x = localStorage.getItem("id"); 
             var dados = {
                 title: document.getElementById("mtitle").value,
                 price: document.getElementById("mprice").value,
-                year: document.getElementById("myear").value,
-                tag: document.getElementById("mtag").value,
-                colection: document.getElementById("mcolection").value,
-                description: document.getElementById("mdescription").value,
+                // year: document.getElementById("myear").value,
+                // tag: document.getElementById("mtag").value,
+                // colection: document.getElementById("mcolection").value,
+                // description: document.getElementById("mdescription").value,
 
-                coverimg: document.getElementById("inputfile").path,
+                // coverimg: document.getElementById("inputfile").path,
                 rating: "0",
+                artist: document.getElementById("mArtist").value,
+                artistId: x,
             };
-            
+            console.log(dados.artistId)
             fetch('/api/listings/create', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -616,7 +665,7 @@
             .then((data) => {
                 resposta = "Listing deleted succeffuly!";
                 alert(resposta);
-                fListings();
+                findListings();
             })
             .catch((error) => {
                 console.error("ERROR:", error);

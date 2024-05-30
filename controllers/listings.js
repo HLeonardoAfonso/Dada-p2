@@ -30,6 +30,7 @@ exports.getAll = async (req, res) => {
     }
 }
 
+
 //returns art listing based on given id
 exports.getById = async (req, res) => {
     const id = req.params.id*1;
@@ -47,25 +48,43 @@ exports.getById = async (req, res) => {
     }
 }
 
+//returns art listing based on given id
+exports.getByArtistId = async (req, res) => {
+    const artistId = req.params.x;
+    console.log(artistId)
+    try {
+        //procura o carro com o id
+        const response = await prisma.Listing.findMany({
+            where: {
+                artistId: artistId*1,
+            },
+        })
+        //devolve o carro
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(404).json({ msg: error.message })
+    }
+}
+
 
 //create new listing
 exports.create = async (req, res) => {
-    const { title, price, year, tags, colection, description, coverimg, rating } = req.body; // or data
+    const { title, price, year, tags, colection, description, coverimg, rating, artist, artistId } = req.body; // or data
     try {
-        //criar um novo carro
         const art = await prisma.Listing.create({
             data: {
                 title: title,
                 price: price,
-                year: year,
-                tags: tags,
-                colection: colection,
-                description: description,
-                coverimg: coverimg,
-                rating: rating
+                // year: year,
+                // tags: tags,
+                // colection: colection,
+                // description: description,
+                // coverimg: coverimg,
+                rating: rating,
+                artist: artist,
+                artistId: artistId*1,
             },
         })
-        //devolve o carro criado
         res.status(201).json(art)
     } catch (error) {
         res.status(400).json({ msg: error.message })
@@ -100,7 +119,6 @@ exports.update = async (req, res) => {
 
 }
 
-
 //delete listing by id
 exports.delete = async (req, res) => {
     //le o id do carro
@@ -119,4 +137,3 @@ exports.delete = async (req, res) => {
     }
 
 }
-

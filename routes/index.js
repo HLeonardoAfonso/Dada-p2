@@ -16,6 +16,7 @@ homepageRouter.get('/search', (req, res) => {
 
 // delete later
 
+// add /:1 id for artist
 homepageRouter.get('/artist', (req, res) => {
   res.sendFile('templates/artistPage.html', { root: "." });
 });

@@ -88,12 +88,12 @@
             <div class="d-flex flex-column align-items-center m-5">
                 <h3 class="mb-3">Sign in</h3>
                 <!-- <input type="text" name="name" placeholder="Username" class="m-2 p-1" > -->
-                <input type="email" name="email" placeholder="Email" class="m-2 p-1" id="emailin" required>
+                <input type="email" name="email" placeholder="Email" class="m-2 p-1" id="userin" required>
                 <input type="password" name="password" placeholder="Password" class="m-2 mb-4 p-1" id="pswdin" required>
 
-                            <button class="btn-purp" onclick="validaLogin()">AQUII</button>
+                            <button class="btn-purp" onclick="leTokenSFF()">Login</button>
 
-                <!-- <button type="button" class="btn btn-primary" onclick="leTokenSFF()">le token</button> -->
+                <!-- <button type="button" class="btn btn-primary" onclick="validaLogin()">le token</button> -->
                 <a href="/forgot" >Forgot password?</a>
             </div>
         </div>
@@ -222,7 +222,7 @@
     </footer>
     <script type="text/JavaScript">
 
-        const novoUser = async () => {
+        const newUser = async () => {
             var dados = {
                 email: document.getElementById("email").value,
                 name: document.getElementById("nome").value,
@@ -235,21 +235,15 @@
                 body: JSON.stringify(dados),
             })
             .then((response) => {
-                // Verifica se a resposta foi bem sucedida
                 if (!response.ok) {
-                    throw new Error("Erro ao obter os dados");
+                    throw new Error("Error finding data");
                 }
-                // Converte a resposta para JSON
                 return response.json();
             })
-            .then((data) => {
-                // Faz algo com os dados
-                alert("O " + dados.name + " foi adicionado com sucesso!");
-            })
-            .catch((error) => {
-                // Captura qualquer erro de rede ou tratamento de erro
-                alert("Houve um erro:", error);
-            });
+            // .then((data) => {
+            //     alert("The " + dados.name + " foi adicionado com sucesso!");
+            // })
+            .catch((error) => { alert("ERROR:", error); });
         };
 
         function validaPassword() {
@@ -264,18 +258,18 @@
             //     return false;
             // }
             if(!password1.match(password2)){
-                alert("A password e a confirmação não são iguais");
+                alert("The password and confirmation are not the same");
             return false;
             }
-            novoUser();
-            alert("ok");
+            newUser();
+            alert("You have been registered");
             return true;
         }
 
         const validaLogin = async () => {
 
             var dados = {
-                email: document.getElementById("emailin").value,
+                email: document.getElementById("userin").value,
                 password: document.getElementById("pswdin").value,
             };
 
@@ -286,17 +280,20 @@
                 },
                 body: JSON.stringify(dados),
             });
-            console.log(response.ok);
+            // console.log(response.ok);
             dados= await  response.json()
             if(!response.ok){
-                alert("Erro ao fazer login");
+                alert("Error on login");
             }
             else{
-                alert("Login efetuado com sucesso");
-                console.log(dados);
+                // alert("Login sucessful");
+                console.log(dados.id);
                 // Guardar o token no local storage
                 localStorage.setItem("token", dados.token);
-                window.location.href = "http://localhost:4242/bo";
+                localStorage.setItem("id", dados.id);
+                console.log(dados.token);
+                window.location.href = "/artist";
+                // +dados.id
             }
         };
 
@@ -304,8 +301,7 @@
             var dados = {
                 token: localStorage.getItem("token"),
             };
-            //remove
-            console.log(JSON.stringify(dados));
+            // console.log(JSON.stringify(dados));
             const response= await fetch("http://localhost:4242/api/auth/letoken", {
                 method: "POST",
                 headers: {
@@ -313,14 +309,15 @@
                 },
                 body: JSON.stringify(dados),
             })
-            console.log(response);
+            // console.log(response);
             dados= await  response.json()
-            console.log(dados);
+            // console.log(dados);
             if(!response.ok){
-                alert("Erro ao fazer login");
+                alert("Error on login");
             } else {
-                alert("token lido com sucesso");
-                console.log(dados);
+                // alert("token lido com sucesso");
+                // console.log(dados);
+                validaLogin();
             }
         };
     </script>

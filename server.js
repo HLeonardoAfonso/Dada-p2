@@ -39,7 +39,7 @@ app.use(express.static('files/uploads/')); //inport uploaded fotos
 
 app.use('/', homepageRouter);   //homepage
 app.use('/api/', router);       //editing listings api
-app.use('/artist/', privateRouter);  //artist private page
+// app.use('/artist/', privateRouter);  //artist private page
 
 app.post('/upload', upload.single('coverimg'), (req, res) => {
     res.json(req.file);
