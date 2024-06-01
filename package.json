@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "engines":  {
+  "engines": {
     "node": "20.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "prisma generate"
   },
   "prisma": {
     "schema": "data/prisma/schema.prisma"
@@ -29,6 +30,7 @@
   "homepage": "https://github.com/HLeonardoAfonso/DadaTwo",
   "dependencies": {
     "@prisma/client": "^5.14.0",
+    "@vercel/postgres": "^0.8.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
