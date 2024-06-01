@@ -50,3 +50,5 @@ const port = process.env.SERVER_PORT || 8080;
 app.listen(port, () => {
     console.log('Express server listening on port', port)
 });
+
+// teste
