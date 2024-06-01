@@ -27,11 +27,12 @@ exports.signin = async (req, res) => {
 exports.signup = async (req, res) => {
     try {
         const { name, email, password, isAdmin } = req.body;
-        await prisma.users.create({
+        await prisma.Users.create({
             data: {
                 email: email,
                 name: name,
                 password: bcrypt.hashSync(password, 8),
+                profilePic: "images/blank-profile-picture.webp",
                 isAdmin: isAdmin
             },
         })

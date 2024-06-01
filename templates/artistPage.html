@@ -53,11 +53,7 @@
                 </div>  
             </div>
             <div class="col-md-2 d-inline-flex gap-2 ">
-                <button class="btn-white fit-100"  id="btn-profile">
-                    <!-- <div class="col-md-2 " style="width: 25px; height: 25px; border-radius: 75px; overflow: hidden; display: flex; justify-content: center;"  >
-                        <img src="/images/Artimage1.png" >
-                    </div>
-                    <div>&nbsp; &nbsp; &nbsp; So Lazo</div> -->
+                <button class="btn-profile fit-100"  id="btn-profile">
                 </button>
                 <a ><i class="bi bi-star fs-4 " ></i></a>
                 <a ><i class="bi bi-cart fs-4" ></i></a>
@@ -97,13 +93,7 @@
     <div class="d-flex flex-row p-0 my " style="gap: 10px" >
         <!-- Artist image -->
         <div class="col-md-2 " style="width: 150px; height: 150px; border-radius: 75px; overflow: hidden; display: flex; justify-content: center;"  >
-            <img src="/images/Artimage1.png" > 
-            
-            
-<!--find it from data-->
-
-
-
+            <img src="" id="mPic"> 
         </div>
         <!-- Name, badges, socials, location -->   
         <div class="d-flex flex-column m-2">
@@ -524,24 +514,13 @@
             const artigo = await response.json();
 
             document.getElementById("mArtist").innerHTML = artigo.name;
+            document.getElementById("mPic").src = artigo.profilePic;
+
             strHtml += `
-                <div class="col-md-2 " style="width: 25px; height: 25px; border-radius: 75px; overflow: hidden; display: flex; justify-content: center;"  >
-                    <img src="${artigo.profilePic}" >
-                </div>
-                <div>&nbsp; &nbsp; &nbsp; ${artigo.profilePic}</div>
-
-                    <img src="" class="img img-fluid w-100">
+                <img src="${artigo.profilePic}" class="col-md-2 " style="width: 38px; height: 38px; border-radius: 19px; overflow: hidden; display: flex; justify-content: center;">
+                <div class="ps-2">${artigo.name}</div>
             `
-            
-            document.getElementById("cardListing").innerHTML = strHtml;
-
-            // <div class="col-md-2 " style="width: 25px; height: 25px; border-radius: 75px; overflow: hidden; display: flex; justify-content: center;"  >
-            //             <img src="/images/Artimage1.png" >
-            //         </div>
-            //         <div>&nbsp; &nbsp; &nbsp; So Lazo</div>
-            // document.getElementById("editCoverIMG").src = artigo.coverimg;
-            // document.getElementById("editTitle").value = artigo.title;
-            // document.getElementById("editPrice").value = artigo.price;
+            document.getElementById("btn-profile").innerHTML = strHtml;
         }
         populateArtist();
 
@@ -616,13 +595,13 @@
                 title: document.getElementById("mtitle").value,
                 price: document.getElementById("mprice").value,
                 // year: document.getElementById("myear").value,
-                // tag: document.getElementById("mtag").value,
+                tags: document.getElementById("mtag").value,
                 // colection: document.getElementById("mcolection").value,
                 // description: document.getElementById("mdescription").value,
 
                 // coverimg: document.getElementById("inputfile").path,
                 rating: "0",
-                artist: document.getElementById("mArtist").value,
+                artist: document.getElementById("mArtist").innerHTML,
                 artistId: x,
             };
             console.log(dados.artistId)

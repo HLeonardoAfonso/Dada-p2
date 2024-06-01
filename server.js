@@ -31,6 +31,7 @@ app.use(express.static('templates/index.html'));
 
 app.use(express.static('styles')); //inport styles
 app.use(express.static('assets')); //inport assets
+app.use(express.static('files')); //inport uploaded files folder
 app.use(express.static('scripts')); //inport assets
 
 app.use(express.static('files/uploads/')); //inport uploaded fotos

@@ -91,7 +91,7 @@
                 <input type="email" name="email" placeholder="Email" class="m-2 p-1" id="userin" required>
                 <input type="password" name="password" placeholder="Password" class="m-2 mb-4 p-1" id="pswdin" required>
 
-                            <button class="btn-purp" onclick="leTokenSFF()">Login</button>
+                            <button class="btn-purp" onclick="validaLogin()">Login</button>
 
                 <!-- <button type="button" class="btn btn-primary" onclick="validaLogin()">le token</button> -->
                 <a href="/forgot" >Forgot password?</a>
@@ -240,9 +240,9 @@
                 }
                 return response.json();
             })
-            // .then((data) => {
-            //     alert("The " + dados.name + " foi adicionado com sucesso!");
-            // })
+            .then((data) => {
+                alert("The " + dados.name + " foi adicionado com sucesso!");
+            })
             .catch((error) => { alert("ERROR:", error); });
         };
 

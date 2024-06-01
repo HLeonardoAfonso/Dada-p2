@@ -2,18 +2,6 @@ const fs = require('fs');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient()
 
-//TEST
-exports.testConnection = async (req, res) => {
-    try {
-        await prisma.$connect();
-        res.send('success');
-    } catch (error) {
-        res.send('error with sql', error);
-    } finally {
-        await prisma.$disconnect();
-    }
-}
-
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
@@ -66,7 +54,6 @@ exports.getByArtistId = async (req, res) => {
     }
 }
 
-
 //create new listing
 exports.create = async (req, res) => {
     const { title, price, year, tags, colection, description, coverimg, rating, artist, artistId } = req.body; // or data
@@ -76,7 +63,7 @@ exports.create = async (req, res) => {
                 title: title,
                 price: price,
                 // year: year,
-                // tags: tags,
+                tags: tags,
                 // colection: colection,
                 // description: description,
                 // coverimg: coverimg,
