@@ -1,7 +1,7 @@
 {
   "name": "DadaTwo",
   "version": "1.0.0",
-  "description": "Primeiro teste de um api",
+  "description": "",
   "main": "server.js",
   "engines":  {
     "node": "20.x"
@@ -21,7 +21,7 @@
     "ws",
     "primeiro"
   ],
-  "author": "António Lira Fernandes",
+  "author": "Nina Tchernega & Leonardo Afonso",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/HLeonardoAfonso/DadaTwo"
