@@ -3,7 +3,7 @@ const findHomeListings  = async () => {
     const response = await fetch('/api/listings/');
     const lv = await response.json();            
 
-    const filterapplied = lv.filter(item => item.tags == "popular" )
+    const filterapplied = lv.filter(item => item.tags == "cartoon" )
 
     for (artigo of filterapplied ) { 
         strHtml += `

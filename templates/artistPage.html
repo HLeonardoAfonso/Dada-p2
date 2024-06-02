@@ -191,7 +191,7 @@
                                                 <i class="bi bi-upload me-2"></i>Browse or Drag-and-drop
                                             </label>
                                             <input type="file" name="coverimg" class="form-control-file" id="inputfile">
-                                            <input type="submit">
+                                            <!-- <input type="submit"> -->
                                         <!-- </div> -->
                                     </form>
                             </div>
@@ -678,14 +678,12 @@
                 body: JSON.stringify(dados),
             })
             .then((response) => {
-                // Verifica se a resposta foi bem sucedida
                 if (!response.ok) {
                     throw new Error("Erro ao obter os dados");
                 }
-                // Converte a resposta para JSON
+                findListings();
                 return response.json();
             })
-            findListings();
         }
 
     </script>

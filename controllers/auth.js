@@ -24,6 +24,7 @@ exports.signin = async (req, res) => {
         res.status(401).json({ msg: error.message })
     }
 }
+
 exports.signup = async (req, res) => {
     try {
         const { name, email, password, isAdmin } = req.body;
@@ -42,7 +43,6 @@ exports.signup = async (req, res) => {
     }
 }
 
-//ver o token
 exports.readToken= async (req, res) =>{
     try{
         const { token } = req.body;
@@ -64,13 +64,11 @@ exports.readToken= async (req, res) =>{
 exports.userData = async (req, res) => {
     const id = req.params.x*1;
     try {
-        //procura o carro com o id
         const response = await prisma.Users.findUnique({
             where: {
                 id: id,
             },
         })
-        //devolve o carro
         res.status(200).json(response)
     } catch (error) {
         res.status(404).json({ msg: error.message })
