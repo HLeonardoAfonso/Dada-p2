@@ -1,7 +1,7 @@
              
 // collects the filters applied
 
-const toggledArray = [];
+
 
 // collects info from API to display the cards
 
@@ -96,6 +96,8 @@ const findListings  = async () => {
 }
 
 findListings();
+
+const toggledArray = [];
 
 function filterbyid(id) {
     let strBtnHtml = ``;
