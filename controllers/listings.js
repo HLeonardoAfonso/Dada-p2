@@ -39,12 +39,12 @@ exports.getById = async (req, res) => {
 //returns art listing based on given id
 exports.getByArtistId = async (req, res) => {
     const artistId = req.params.x;
-    console.log(artistId)
+    // console.log(artistId)
     try {
         //procura o carro com o id
         const response = await prisma.Listing.findMany({
             where: {
-                artistId: artistId*1,
+                artistId: Number(artistId),
             },
         })
         //devolve o carro
@@ -62,11 +62,11 @@ exports.create = async (req, res) => {
             data: {
                 title: title,
                 price: price,
-                // year: year,
+                year: year,
                 tags: tags,
                 // colection: colection,
                 // description: description,
-                // coverimg: coverimg,
+                coverimg: coverimg,
                 rating: rating,
                 artist: artist,
                 artistId: artistId*1,

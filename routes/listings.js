@@ -1,6 +1,8 @@
 const artRouter = require('express').Router();
 const controller = require('../controllers/listings');
+const middleware = require('../middleware/auth.js');
 
+artRouter.use(middleware.verificarToken);
 
 //CRUD for the listings
 artRouter.get('/', controller.getAll);

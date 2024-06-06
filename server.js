@@ -12,6 +12,7 @@ const storage = multer.diskStorage({
     }
 })
 
+
 const upload = multer ({ storage : storage })
 
 const path = require('path');
@@ -43,7 +44,10 @@ app.use('/api/', router);       //editing listings api
 // app.use('/artist/', privateRouter);  //artist private page
 
 app.post('/upload', upload.single('coverimg'), (req, res) => {
-    res.json(req.file);
+    // res.json(req.file);
+    let f = req.file.filename
+    console.log(f)
+   //return
 });
 
 const port = process.env.SERVER_PORT || 8080;

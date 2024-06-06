@@ -6,8 +6,9 @@
 // collects info from API to display the cards
 
 const findListings  = async () => {
+    const token = `Bearer ${localStorage.getItem("token")}`; 
     let strHtml = ``;
-    const response = await fetch('api/listings/');
+    const response = await fetch('api/listings/', { headers: { authorization : token}});
     const lv = await response.json();
     for (const artigo of lv) {
         strHtml += `
@@ -31,7 +32,7 @@ const findListings  = async () => {
                 </div>
                 <!--Artist-->
                 <div class="d-flex justify-content-between align-items-center">
-                    <div>by <a href="/artist">${artigo.artist}</a></div>
+                    <div>by <a>${artigo.artist}</a></div>
                     <div  class="d-inline-flex gap-1" >
                         <button type="button" class="badgeIconSmall" >
                             <i class="bi bi-check-lg"></i>

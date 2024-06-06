@@ -4,7 +4,7 @@ module.exports.verificarToken = async (req, res, next) => {
     const accessToken = req.headers['authorization']; // req.headers['x-access-token'];
 
     if (!accessToken) {
-        return res.status(401).send("Not autherized");
+        return res.status(401).send("Not authorized");
     }
 
     try {
